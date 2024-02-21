@@ -1,0 +1,23 @@
+<br/>
+<input type="checkbox" #chb (change)="showActivStudent(chb.checked)"/>Show Active Students 
+<br/>
+<input type="text" placeholder="enter name of student" [(ngModel)]="studentName" (input)="getStudentByName()" />
+
+<ul class="list-group">
+    <li  *ngFor="let student of students" (click)="onFocusStudent(student)" class="list-group-item" [ngClass]="{'active':student.markAvg>  90,'list-group-item-danger': !student.isActive }">
+            <div class="row">
+                <div class="col-1"> {{student.id}}</div>
+                <div class="col-2"> name: {{student.firstName}} {{student.lastName}}</div>
+                <div class="col-2"> adress: {{student.address}}</div>
+                <div class="col-1"> phone: {{student.phone}}</div>
+                <div class="col-1">isActive:  {{student.isActive}}</div>
+                <div class="col-1"> {{student.markAvg}}</div>
+                <div class="col-1">total: {{this.total(student)}}</div>
+                <div class="col-1"><button (click)="showDetails(student)">Show Details</button></div>
+                <div class="col-1"><button (click)="deleteStudent(student.id)">Delete Student</button></div>
+            </div>
+    </li>
+</ul>
+<br>
+<button class="btn btn-primary" (click)="showNewStudentDetails()">Add Student</button>
+<app-student-details-form-md [student]="selectedStudent" (onSaveStudent)="SaveStudentToList($event)"></app-student-details-form-md>

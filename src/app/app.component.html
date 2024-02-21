@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>{{func()}}</h1>
+    <br>
+    {{title}}
+    <br>
+    <app-student-list class="col-8" (focusStudent)="showQuizes($event)"></app-student-list>
+    <app-quiz-history *ngIf="student" class="col-4" [id]="student.id" [quizes]="student.quizes"></app-quiz-history>
+    <app-observable></app-observable>
+    
+</div>
+
+
+

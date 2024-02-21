@@ -1,0 +1,26 @@
+<div class="card" *ngIf="student">
+    <div class="card-body">
+       <!-- <form>-->
+            <div class="from-group">
+                <label for="name">student name:</label>
+                <input type="text" class="from-control" id="name" [value]="student.firstName">
+            </div>
+            <div *ngIf="!student.isActive">
+                <label for="leaveDate">leave Date:</label>
+                <input type="date" class="from-control" id="date1" [value]="student.leaveDate">
+            </div>
+            <button  class="btn btn-primary" (click)="saveNewStudent()">save</button>
+
+      <!--</form>-->  
+    </div>
+</div>
+<!--<div class="card" *ngIf="student">
+    <div class="card-body">
+        student details
+        {{student.id}}
+        {{student.firstName}} {{student.lastName}}
+        <div class="card" *ngIf="!student.isActive">
+            {{student.leaveDate}}
+        </div>
+    </div>
+</div>-->
